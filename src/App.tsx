@@ -22,12 +22,28 @@ export const App: React.FC = () => {
     }
   };
 
-  const handleLoad5First = () => {
-    get5First().then(setGoods);
+  const handleLoad5First = async () => {
+    try {
+      const data = await get5First();
+
+      setGoods(data);
+      setError(null);
+    } catch (e) {
+      setError('Failed to load goods');
+    } finally {
+    }
   };
 
-  const handleLoadRed = () => {
-    getRedGoods().then(setGoods);
+  const handleLoadRed = async () => {
+    try {
+      const data = await getRedGoods();
+
+      setGoods(data);
+      setError(null);
+    } catch (e) {
+      setError('Failed to load goods');
+    } finally {
+    }
   };
 
   return (
